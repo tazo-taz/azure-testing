@@ -1,14 +1,27 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 
+import { useDispatch, useSelector } from 'react-redux';
 import { ButtonFooter, CardContent } from '../components';
+import { loadProductsAction } from '../store';
+import { loadProductsApi } from '../store/product.api';
 
 function ProductList({
   handleDeleteProduct,
   handleSelectProduct,
-  products = [],
 }) {
   const navigate = useNavigate(); // Use useNavigate hook for navigation
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products?.data) || [];
+  const productss = []
+  console.log(productss, products);
+
+  useEffect(() => {
+    loadProductsApi().then((data) => {
+      console.log(data);
+      dispatch(loadProductsAction(data));
+    });
+  }, [])
 
   function selectProduct(e) {
     const product = getSelectedProduct(e);
@@ -28,7 +41,7 @@ function ProductList({
 
   return (
     <div>
-      {products && products.length === 0 && <div>Loading data ...</div>}
+      {products && products.length === 0 && <div>Loading datasda ...</div>}
       <ul className="list">
         {products && products.map((product, index) => (
           <li key={product.id} role="presentation">

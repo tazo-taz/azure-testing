@@ -23,7 +23,9 @@ let initState = {
 export const productsReducer = (state = initState, action) => {
   switch (action.type) {
     case LOAD_PRODUCT:
-      return { ...state, loading: true, error: '' };
+      console.log(action.payload);
+
+      return { loading: true, error: '', ...state, data: action.payload };
     case LOAD_PRODUCT_SUCCESS:
       return { ...state, loading: false, data: [...action.payload] };
     case LOAD_PRODUCT_ERROR:

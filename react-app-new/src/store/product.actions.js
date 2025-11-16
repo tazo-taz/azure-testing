@@ -20,7 +20,7 @@ export const selectProductAction = (product) => ({
   type: SELECT_PRODUCT,
   payload: product,
 });
-export const loadProductsAction = () => ({ type: LOAD_PRODUCT });
+export const loadProductsAction = (products) => ({ type: LOAD_PRODUCT, payload: products });
 
 export const updateProductAction = (product) => ({
   type: UPDATE_PRODUCT,

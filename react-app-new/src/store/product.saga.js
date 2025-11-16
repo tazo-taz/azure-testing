@@ -21,6 +21,8 @@ import {
 } from './product.api';
 
 export function* loadingProductsAsync() {
+  console.log(1234);
+
   try {
     const data = yield call(loadProductsApi);
     const productes = [...data];
@@ -32,6 +34,8 @@ export function* loadingProductsAsync() {
 }
 
 export function* watchLoadingProductsAsync() {
+  console.log(41);
+
   yield takeEvery(LOAD_PRODUCT, loadingProductsAsync);
 }
 
@@ -80,6 +84,8 @@ export function* watchAddingProductAsync() {
 }
 
 export function* productSaga() {
+  console.log(222);
+
   yield all([
     watchLoadingProductsAsync(),
     watchUpdatingProductAsync(),
