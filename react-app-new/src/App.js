@@ -4,8 +4,7 @@ import './styles.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { HeaderBar, NavBar, NotFound } from './components';
 import About from './About';
-
-const Products = lazy(() => import(/* webpackChunkName: "products" */ './products/Products'));
+import Products from './products/Products';
 
 class App extends Component {
   render() {
