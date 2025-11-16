@@ -22,7 +22,7 @@ function ProductList({
       console.log(data);
       dispatch(loadProductsAction(data));
     });
-  }, [])
+  }, [dispatch])
 
   function selectProduct(e) {
     const product = getSelectedProduct(e);
