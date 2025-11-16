@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 
@@ -12,7 +13,7 @@ function ProductList({
 }) {
   const navigate = useNavigate(); // Use useNavigate hook for navigation
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products?.data) || [];
+  const products = useSelector((state) => state.products.data) || [];
   const productss = []
   console.log(productss, products);
 
